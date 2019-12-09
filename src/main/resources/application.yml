@@ -1,0 +1,36 @@
+server:
+  # 数据、设备信息等部分同步的端口
+  port: 8800
+  # NB指令同步的端口
+#  port:8801
+# 生产数据库 - 数据源1
+spring:
+  datasource:
+    # 添加了两个自定义字段：product 和 local 用来区分两个数据源，但是这样一来springboot就不认识这个东西了，需要重新定义，
+    # 定义数据源，建立java文件
+    product:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      # 注：之前没有添加 &serverTimezone=Asia/Shanghai ，配置多数据源之后，报mysql连接失败HikariPool错误
+      # 异常信息：com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Exception during pool initialization.
+#      jdbc-url: jdbc:mysql://localhost:3306/jinfen?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+#      username: root
+#      password: 12345678
+      # 腾讯数据库 - 外网
+      jdbc-url: jdbc:mysql://sh-cdb-4mopinby.sql.tencentcdb.com:63450/jinfeng?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: Gmd888Debug
+    # 本地数据库 - 数据源2
+    local:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+#      jdbc-url: jdbc:mysql://localhost:3306/jinfeng_copy?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+#      username: root
+#      password: 12345678
+      # 电信数据库 - 外网
+      jdbc-url: jdbc:mysql://125.124.169.46:5528/jinfeng?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: Gmd@8@Debug
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: mysql
