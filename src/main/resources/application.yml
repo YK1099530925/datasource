@@ -16,9 +16,9 @@ spring:
 #      username: root
 #      password: 12345678
       # 腾讯数据库 - 外网
-      jdbc-url: jdbc:mysql://sh-cdb-4mopinby.sql.tencentcdb.com:63450/jinfeng?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      jdbc-url: jdbc:mysql://*****/jinfeng?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
       username: root
-      password: Gmd888Debug
+      password: *****
     # 本地数据库 - 数据源2
     local:
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -26,9 +26,9 @@ spring:
 #      username: root
 #      password: 12345678
       # 电信数据库 - 外网
-      jdbc-url: jdbc:mysql://125.124.169.46:5528/jinfeng?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      jdbc-url: jdbc:mysql://*****?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
       username: root
-      password: Gmd@8@Debug
+      password: *****
   jpa:
     hibernate:
       ddl-auto: update
